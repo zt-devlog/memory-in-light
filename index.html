@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Memory in Light — Prototype</title>
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+  <main class="experience" id="experience">
+
+    <!-- =========================
+         0 — OPENING
+    ========================== -->
+
+    <section
+      class="screen is-active"
+      data-screen="0"
+      aria-labelledby="intro-title"
+    >
+
+      <header class="screen__content screen__content--centered">
+
+        <h1 id="intro-title">
+          Look for a moment.
+        </h1>
+
+        <p class="intro-copy">
+          There are no correct interpretations.<br />
+          Notice whatever comes to mind.
+        </p>
+
+        <button
+          class="primary-action"
+          type="button"
+          data-next
+        >
+          Begin
+        </button>
+
+      </header>
+
+    </section>
+
+
+    <!-- =========================
+         1 — MEMORY ENVIRONMENT
+    ========================== -->
+
+    <section
+      class="screen"
+      data-screen="1"
+      aria-labelledby="environment-1-title"
+    >
+
+      <figure
+        class="environment environment--one"
+        role="img"
+        aria-labelledby="environment-1-title"
+        aria-describedby="environment-1-description"
+      >
+
+        <!--
+          Build Environment One here.
+
+          Direction:
+          cool / nocturnal / diffuse light
+        -->
+
+        <figcaption class="visually-hidden">
+
+          <h2 id="environment-1-title">
+            Visual Environment One
+          </h2>
+
+          <p id="environment-1-description">
+            An abstract visual environment using light and color
+            to invite personal association.
+          </p>
+
+        </figcaption>
+
+      </figure>
+
+    </section>
+
+
+    <!-- =========================
+         2 — MEMORY ENVIRONMENT
+    ========================== -->
+
+    <section
+      class="screen"
+      data-screen="2"
+      aria-labelledby="environment-2-title"
+    >
+
+      <figure
+        class="environment environment--two"
+        role="img"
+        aria-labelledby="environment-2-title"
+        aria-describedby="environment-2-description"
+      >
+
+        <!--
+          Build Environment Two here.
+
+          Direction:
+          warm / amber / changing light
+        -->
+
+        <figcaption class="visually-hidden">
+
+          <h2 id="environment-2-title">
+            Visual Environment Two
+          </h2>
+
+          <p id="environment-2-description">
+            An abstract visual environment using changing light
+            to invite personal association.
+          </p>
+
+        </figcaption>
+
+      </figure>
+
+    </section>
+
+
+    <!-- =========================
+         3 — MEMORY ENVIRONMENT
+    ========================== -->
+
+    <section
+      class="screen"
+      data-screen="3"
+      aria-labelledby="environment-3-title"
+    >
+
+      <figure
+        class="environment environment--three"
+        role="img"
+        aria-labelledby="environment-3-title"
+        aria-describedby="environment-3-description"
+      >
+
+        <!--
+          Build Environment Three here.
+
+          Direction:
+          threshold / narrow light / darkness
+        -->
+
+        <figcaption class="visually-hidden">
+
+          <h2 id="environment-3-title">
+            Visual Environment Three
+          </h2>
+
+          <p id="environment-3-description">
+            An abstract visual environment using darkness
+            and a limited source of light to invite association.
+          </p>
+
+        </figcaption>
+
+      </figure>
+
+    </section>
+
+
+    <!-- =========================
+         4 — MEMORY ENVIRONMENT
+    ========================== -->
+
+    <section
+      class="screen"
+      data-screen="4"
+      aria-labelledby="environment-4-title"
+    >
+
+      <figure
+        class="environment environment--four"
+        role="img"
+        aria-labelledby="environment-4-title"
+        aria-describedby="environment-4-description"
+      >
+
+        <!--
+          Build Environment Four here.
+
+          Direction:
+          blurred points / distant colored light
+        -->
+
+        <figcaption class="visually-hidden">
+
+          <h2 id="environment-4-title">
+            Visual Environment Four
+          </h2>
+
+          <p id="environment-4-description">
+            An abstract visual environment using blurred colored
+            light to invite personal association.
+          </p>
+
+        </figcaption>
+
+      </figure>
+
+    </section>
+
+
+    <!-- =========================
+         5 — REFLECTION
+    ========================== -->
+
+    <section
+      class="screen"
+      data-screen="5"
+      aria-labelledby="reflection-title"
+    >
+
+      <article class="screen__content screen__content--centered">
+
+        <header>
+
+          <p class="eyebrow">
+            Reflection
+          </p>
+
+          <h2 id="reflection-title">
+            Did anything feel familiar?
+          </h2>
+
+          <p class="reflection-copy">
+            You do not need to identify what any environment was
+            “supposed” to represent. Consider whether any color,
+            light, movement, place, feeling, or atmosphere came
+            to mind.
+          </p>
+
+        </header>
+
+
+        <form id="reflection-form">
+
+          <label for="reflection">
+            What came to mind?
+          </label>
+
+          <textarea
+            id="reflection"
+            name="reflection"
+            rows="6"
+            placeholder="A place, feeling, memory, sensation, or nothing at all..."
+          ></textarea>
+
+        </form>
+
+
+        <button
+          class="secondary-action"
+          type="button"
+          data-restart
+        >
+          Experience again
+        </button>
+
+      </article>
+
+    </section>
+
+
+    <!-- =========================
+         EXPERIENCE NAVIGATION
+    ========================== -->
+
+    <nav
+      class="experience-nav"
+      aria-label="Experience navigation"
+    >
+
+    <button
+  type="button"
+  class="nav-button"
+  data-back
+  aria-label="Previous environment"
+>
+  ←
+</button>
+
+<output
+  class="progress"
+  id="progress-label"
+  aria-live="polite"
+>
+  1 / 4
+</output>
+
+<button
+  type="button"
+  class="nav-button"
+  data-next
+  aria-label="Next environment"
+>
+  →
+</button>
+
+    </nav>
+
+  </main>
+
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>

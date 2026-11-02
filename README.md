@@ -1,81 +1,54 @@
-# Memory in Light
+# Memory in Light — Prototype Skeleton
 
-**Memory in Light** is an interactive web prototype exploring how color, light, and visual ambiguity can invite personal interpretation and autobiographical association.
+This is a deliberately neutral prototype shell for the Visual Literacy semester project.
 
-The project was created for a Visual Literacy research course and is informed by research on visual indeterminacy, autobiographical memory, color perception, and viewing context.
+## Current flow
 
-## Project Concept
+1. Opening question
+2. Memory Environment 1
+3. Memory Environment 2
+4. Memory Environment 3
+5. Memory Environment 4
+6. Reflection screen
 
-The central question behind the project is:
+## Where to design
 
-**How does visual ambiguity in abstract, color-based imagery encourage autobiographical memory and personal meaning-making?**
+Open `styles.css`.
 
-Rather than depicting specific memories or telling viewers what they should feel, the experience presents a series of abstract visual environments using light, color, darkness, blur, spatial suggestion, and slow movement.
+The four classes below are intentionally empty:
 
-The goal is to create enough visual structure to feel familiar while leaving the interpretation unresolved.
+- `.environment--one`
+- `.environment--two`
+- `.environment--three`
+- `.environment--four`
 
-## Prototype
+Build each light experiment there using CSS gradients, blur, opacity, transforms, background images, or animations.
 
-The current prototype includes four experimental visual environments:
+You can also put additional HTML elements inside each corresponding `.environment` div in `index.html`.
 
-- a cool, diffuse nocturnal light environment
-- a warm amber light environment
-- a narrow threshold-like light environment
-- a field of blurred, colored lights
+## Suggested research structure
 
-The experience begins with minimal instructions and ends with an optional reflection prompt asking whether anything felt familiar.
+Each environment should explore a limited visual cue rather than literally illustrating a memory.
 
-## Design Approach
+Possible categories:
 
-The project is based around the idea of **structured ambiguity**: creating imagery that sits between being completely recognizable and completely abstract.
+- cool nocturnal glow
+- warm moving light
+- narrow threshold light
+- unfocused colored points
 
-Viewers are not given labels for the environments before experiencing them because doing so could influence their interpretation. Instead, the interface is intentionally minimal so that viewers can form their own associations.
+Do not label the environments for viewers if you want their associations to remain open-ended.
 
-## Accessibility
+## Prototype goal
 
-The prototype includes:
+The first prototype does not need to prove that a specific color creates a specific memory.
 
-- semantic HTML
-- keyboard-accessible navigation
-- visible focus states
-- reduced-motion support
-- slow animation without rapid flashing
-- minimal interface elements to reduce visual distraction
+It should demonstrate the research question:
 
-## Built With
+> Can limited visual information such as light, color, movement, and atmosphere invite autobiographical association or nostalgia without depicting the memory itself?
 
-- HTML
-- CSS
-- JavaScript
+## Running locally
 
-No external frameworks are currently required.
+Open `index.html` in a browser.
 
-## Running Locally
-
-Clone or download the repository and open the project using a local server.
-
-For example, with Python:
-
-```bash
-python -m http.server 8000
-```
-
-Then open:
-
-```text
-http://localhost:8000
-```
-
-## Live Prototype
-
-[View the live prototype here](ADD-YOUR-GITHUB-PAGES-LINK-HERE)
-
-## Project Status
-
-This is a working prototype created as part of an ongoing research-informed visual project. Future development will include refining the visual environments, testing different perceptual conditions, improving responsive behavior, and conducting viewer testing to examine how people interpret the different environments.
-
-## Author
-
-**Zoe Thompson**  
-Digital Technology & Culture  
-Washington State University Vancouver
+For a better development workflow, open the folder in VS Code and use a local server extension such as Live Server.
