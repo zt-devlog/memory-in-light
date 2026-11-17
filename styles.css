@@ -1,6 +1,6 @@
 /* =========================================================
    MEMORY IN LIGHT
-   Base Styles
+   Reviewed Research Prototype Styles
    ========================================================= */
 
 :root {
@@ -10,9 +10,13 @@
   --muted: #a8a8ad;
   --border: rgba(255, 255, 255, 0.18);
   --max-copy-width: 700px;
+
+  color-scheme: dark;
 }
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -24,14 +28,24 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  min-height: 100dvh;
 
   background: var(--background);
   color: var(--text);
 
-  font-family: Arial, Helvetica, sans-serif;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  line-height: 1.5;
 }
 
-figure {
+figure,
+fieldset {
   margin: 0;
 }
 
@@ -42,20 +56,21 @@ select {
   font: inherit;
 }
 
-
-/* =========================================================
-   EXPERIENCE
-   ========================================================= */
-
-.experience {
-  min-height: 100vh;
-  background: var(--background);
+button {
+  touch-action: manipulation;
 }
 
 
 /* =========================================================
-   SCREENS
+   EXPERIENCE + SCREENS
    ========================================================= */
+
+.experience {
+  min-height: 100vh;
+  min-height: 100dvh;
+
+  background: var(--background);
+}
 
 .screen {
   display: none;
@@ -64,6 +79,7 @@ select {
 
   width: 100%;
   min-height: 100vh;
+  min-height: 100dvh;
 
   overflow: hidden;
 }
@@ -126,7 +142,7 @@ h2 {
 
 
 /* =========================================================
-   BUTTONS
+   BUTTONS + FOCUS
    ========================================================= */
 
 .primary-action,
@@ -142,6 +158,12 @@ h2 {
   color: var(--text);
 
   cursor: pointer;
+
+  transition:
+    background-color 180ms ease,
+    color 180ms ease,
+    border-color 180ms ease,
+    opacity 180ms ease;
 }
 
 .primary-action {
@@ -152,7 +174,7 @@ h2 {
   margin-top: 1.5rem;
 }
 
-button:hover {
+button:not(:disabled):hover {
   background: rgba(255, 255, 255, 0.08);
 }
 
@@ -160,7 +182,7 @@ button:focus-visible,
 textarea:focus-visible,
 input:focus-visible,
 select:focus-visible {
-  outline: 2px solid white;
+  outline: 2px solid #ffffff;
   outline-offset: 4px;
 }
 
@@ -176,170 +198,24 @@ select:focus-visible {
   width: 100%;
   height: 100%;
 
-  margin: 0;
-
   overflow: hidden;
 
   background: #020307;
 }
 
-
-/* =========================================================
-   ENVIRONMENT 01 — NOCTURNAL MEMORY
-   ========================================================= */
-
-.environment--one {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-
-  background:
-    /* faint reflected light on opposite side */
-    radial-gradient(
-      ellipse at 80% 76%,
-      rgba(80, 115, 180, 0.08) 0%,
-      transparent 35%
-    ),
-
-    /* extremely subtle violet atmosphere */
-    radial-gradient(
-      ellipse at 46% 18%,
-      rgba(90, 75, 170, 0.06) 0%,
-      transparent 42%
-    ),
-
-    /* deep surrounding darkness */
-    linear-gradient(
-      135deg,
-      #070a21 0%,
-      #030617 48%,
-      #01030b 100%
-    );
-}
-
-
-/* Main unseen light source */
-
-.environment--one::before {
-  content: "";
-
-  position: absolute;
-
-  width: 82vw;
-  height: 115vh;
-
-  left: -22vw;
-  top: -8vh;
-
-  background:
-    radial-gradient(
-      ellipse at 43% 45%,
-      rgba(160, 190, 255, 0.8) 0%,
-      rgba(115, 145, 250, 0.52) 15%,
-      rgba(80, 105, 220, 0.34) 30%,
-      rgba(50, 68, 165, 0.18) 48%,
-      rgba(25, 35, 100, 0.07) 64%,
-      transparent 78%
-    );
-
-  filter: blur(50px);
-
-  opacity: 0.75;
-
-  animation:
-    nocturnal-shift 18s ease-in-out infinite alternate;
-}
-
-
-/* Something partially blocks the light */
-
-.environment--one::after {
-  content: "";
-
-  position: absolute;
-
-  width: 54vw;
-  height: 125vh;
-
-  right: -18vw;
-  top: -12vh;
-
-  background:
-    linear-gradient(
-      108deg,
-      transparent 0%,
-      rgba(1, 3, 12, 0.05) 24%,
-      rgba(1, 3, 12, 0.35) 48%,
-      rgba(1, 3, 12, 0.82) 72%,
-      #010208 100%
-    );
-
-  transform: rotate(2deg);
-
-  filter: blur(10px);
-
+.environment::before,
+.environment::after {
   pointer-events: none;
 }
 
 
-@keyframes nocturnal-shift {
-
-  0% {
-    opacity: 0.68;
-
-    transform:
-      translateX(-1vw)
-      translateY(0)
-      scale(0.98);
-  }
-
-  31% {
-    opacity: 0.77;
-
-    transform:
-      translateX(0.5vw)
-      translateY(-0.4vh)
-      scale(1.01);
-  }
-
-  67% {
-    opacity: 0.72;
-
-    transform:
-      translateX(1.8vw)
-      translateY(0.3vh)
-      scale(1.04);
-  }
-
-  100% {
-    opacity: 0.82;
-
-    transform:
-      translateX(0.4vw)
-      translateY(-0.6vh)
-      scale(1.06);
-  }
-}
-
-
-@media (prefers-reduced-motion: reduce) {
-
-  .environment--one::before {
-    animation: none;
-  }
-
-}
-
-
 /* =========================================================
-   ENVIRONMENT 01 — COOL / NOCTURNAL / DIFFUSE
+   ENVIRONMENT 01 — COOL DIFFUSE FIELD
+   Comparison pair with Environment 02:
+   structure and motion remain nearly constant while color changes.
    ========================================================= */
 
 .environment--one {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-
   background:
     radial-gradient(
       ellipse at 76% 70%,
@@ -356,40 +232,48 @@ select:focus-visible {
 
 .environment--one::before {
   content: "";
+
   position: absolute;
 
   width: 82vw;
   height: 115vh;
+  height: 115dvh;
 
   left: -22vw;
   top: -8vh;
+  top: -8dvh;
 
   background:
     radial-gradient(
       ellipse at 38% 42%,
-      rgba(170, 195, 255, 0.82) 0%,
-      rgba(120, 150, 250, 0.54) 12%,
-      rgba(80, 105, 220, 0.34) 27%,
-      rgba(50, 68, 165, 0.18) 45%,
+      rgba(170, 195, 255, 0.78) 0%,
+      rgba(120, 150, 250, 0.50) 12%,
+      rgba(80, 105, 220, 0.32) 27%,
+      rgba(50, 68, 165, 0.17) 45%,
       rgba(25, 35, 100, 0.07) 62%,
       transparent 78%
     );
 
   filter: blur(52px);
 
+  opacity: 0.74;
+
   animation:
-    nocturnal-shift 18s ease-in-out infinite alternate;
+    field-drift 20s ease-in-out infinite alternate;
 }
 
 .environment--one::after {
   content: "";
+
   position: absolute;
 
   width: 75vw;
   height: 32vh;
+  height: 32dvh;
 
   left: -12vw;
   bottom: 8vh;
+  bottom: 8dvh;
 
   background:
     linear-gradient(
@@ -405,176 +289,196 @@ select:focus-visible {
     skewX(-6deg);
 
   filter: blur(12px);
-  opacity: 0.75;
-  pointer-events: none;
+
+  opacity: 0.72;
 }
 
 
 /* =========================================================
-   ENVIRONMENT 02 — WARM / LATE-DAY / AMBER
+   ENVIRONMENT 02 — WARM DIFFUSE FIELD
+   Same spatial structure and motion as Environment 01.
+   The primary change is the color/light relationship.
    ========================================================= */
 
 .environment--two {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-
   background:
     radial-gradient(
-      ellipse at 82% 22%,
-      rgba(180, 85, 40, 0.08) 0%,
-      transparent 35%
+      ellipse at 76% 70%,
+      rgba(170, 88, 48, 0.07) 0%,
+      transparent 42%
     ),
     linear-gradient(
-      145deg,
-      #120805 0%,
-      #090605 48%,
-      #020202 100%
+      135deg,
+      #1a0c07 0%,
+      #0d0705 48%,
+      #030201 100%
     );
 }
 
 .environment--two::before {
   content: "";
+
   position: absolute;
 
-  width: 95vw;
-  height: 48vh;
+  width: 82vw;
+  height: 115vh;
+  height: 115dvh;
 
-  left: -18vw;
-  top: 25vh;
+  left: -22vw;
+  top: -8vh;
+  top: -8dvh;
 
   background:
-    linear-gradient(
-      100deg,
-      transparent 0%,
-      rgba(255, 165, 75, 0.08) 15%,
-      rgba(255, 190, 105, 0.38) 38%,
-      rgba(255, 210, 135, 0.5) 50%,
-      rgba(210, 105, 55, 0.18) 68%,
-      transparent 88%
+    radial-gradient(
+      ellipse at 38% 42%,
+      rgba(255, 218, 155, 0.78) 0%,
+      rgba(255, 178, 92, 0.50) 12%,
+      rgba(220, 120, 60, 0.32) 27%,
+      rgba(155, 72, 42, 0.17) 45%,
+      rgba(90, 38, 25, 0.07) 62%,
+      transparent 78%
     );
 
-  filter: blur(38px);
+  filter: blur(52px);
 
-  transform: rotate(-8deg);
+  opacity: 0.74;
 
   animation:
-    amber-drift 20s ease-in-out infinite alternate;
+    field-drift 20s ease-in-out infinite alternate;
 }
 
 .environment--two::after {
   content: "";
+
   position: absolute;
 
-  width: 55vw;
-  height: 65vh;
+  width: 75vw;
+  height: 32vh;
+  height: 32dvh;
 
-  right: -15vw;
-  bottom: -15vh;
-
-  border-radius: 50%;
+  left: -12vw;
+  bottom: 8vh;
+  bottom: 8dvh;
 
   background:
-    radial-gradient(
-      ellipse at center,
-      rgba(215, 95, 50, 0.16) 0%,
-      rgba(145, 55, 35, 0.07) 45%,
-      transparent 72%
+    linear-gradient(
+      165deg,
+      rgba(255, 190, 120, 0.11) 0%,
+      rgba(185, 95, 55, 0.06) 32%,
+      rgba(80, 35, 25, 0.02) 60%,
+      transparent 82%
     );
 
-  filter: blur(65px);
-  opacity: 0.65;
-  pointer-events: none;
+  transform:
+    rotate(-7deg)
+    skewX(-6deg);
+
+  filter: blur(12px);
+
+  opacity: 0.72;
 }
 
 
 /* =========================================================
-   ENVIRONMENT 03 — THRESHOLD / NARROW LIGHT
+   ENVIRONMENT 03 — AMBIGUOUS THRESHOLD
+   Primary emphasis: structured spatial ambiguity.
+   Light is kept relatively neutral so color is less dominant.
    ========================================================= */
 
 .environment--three {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-
   background:
     radial-gradient(
-      ellipse at 52% 85%,
-      rgba(80, 45, 25, 0.05) 0%,
-      transparent 38%
+      ellipse at 50% 82%,
+      rgba(105, 105, 115, 0.045) 0%,
+      transparent 42%
     ),
-    #020202;
+    linear-gradient(
+      180deg,
+      #030304 0%,
+      #020203 58%,
+      #040405 100%
+    );
 }
 
 .environment--three::before {
   content: "";
+
   position: absolute;
 
-  width: 64vw;
-  height: 2.5vh;
+  width: 58vw;
+  height: 6vh;
+  height: 6dvh;
 
-  left: 18vw;
-  bottom: 18vh;
+  left: 20vw;
+  bottom: 20vh;
+  bottom: 20dvh;
 
   background:
     linear-gradient(
-      90deg,
+      94deg,
       transparent 0%,
-      rgba(255, 160, 75, 0.25) 14%,
-      rgba(255, 205, 130, 0.85) 45%,
-      rgba(255, 185, 95, 0.62) 68%,
+      rgba(205, 210, 220, 0.08) 12%,
+      rgba(232, 228, 218, 0.58) 38%,
+      rgba(205, 210, 220, 0.36) 57%,
+      rgba(135, 142, 155, 0.10) 76%,
       transparent 100%
     );
 
-  filter: blur(8px);
+  filter: blur(16px);
 
-  transform: rotate(-2deg);
+  transform:
+    rotate(-1.3deg)
+    skewX(-5deg);
 
   box-shadow:
-    0 0 20px rgba(255, 160, 75, 0.22),
-    0 0 60px rgba(255, 145, 70, 0.12);
+    0 0 30px rgba(215, 215, 225, 0.10),
+    0 0 90px rgba(170, 178, 195, 0.06);
+
+  opacity: 0.76;
 
   animation:
-    threshold-pulse 14s ease-in-out infinite alternate;
+    threshold-shift 16s ease-in-out infinite alternate;
 }
 
 .environment--three::after {
   content: "";
+
   position: absolute;
 
-  width: 74vw;
-  height: 28vh;
+  width: 68vw;
+  height: 30vh;
+  height: 30dvh;
 
-  left: 12vw;
-  bottom: 5vh;
+  left: 15vw;
+  bottom: 3vh;
+  bottom: 3dvh;
 
   background:
     radial-gradient(
-      ellipse at 50% 15%,
-      rgba(255, 155, 75, 0.12) 0%,
-      rgba(125, 65, 35, 0.04) 42%,
+      ellipse at 48% 12%,
+      rgba(215, 218, 225, 0.075) 0%,
+      rgba(130, 135, 150, 0.025) 40%,
       transparent 72%
     );
 
-  filter: blur(35px);
-  opacity: 0.65;
-  pointer-events: none;
+  filter: blur(42px);
+
+  opacity: 0.56;
 }
 
 
 /* =========================================================
-   ENVIRONMENT 04 — DISTANT / BLURRED COLORED LIGHT
+   ENVIRONMENT 04 — UNSTABLE FIELD
+   Primary emphasis: controlled perceptual instability.
+   Palette is intentionally limited so color does not become
+   the main variable.
    ========================================================= */
 
 .environment--four {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-
   background:
     radial-gradient(
-      circle at 50% 50%,
-      #090a12 0%,
+      ellipse at 50% 48%,
+      #080a12 0%,
       #03040a 58%,
       #010105 100%
     );
@@ -584,263 +488,202 @@ select:focus-visible {
   content: "";
 
   position: absolute;
-  inset: -5%;
+  inset: -7%;
 
   background:
     radial-gradient(
-      circle at 18% 32%,
-      rgba(255, 80, 80, 0.72) 0%,
-      rgba(255, 80, 80, 0.24) 1.8%,
-      transparent 5%
+      ellipse at 24% 36%,
+      rgba(145, 175, 235, 0.26) 0%,
+      rgba(110, 140, 205, 0.09) 12%,
+      transparent 30%
     ),
-
     radial-gradient(
-      circle at 35% 58%,
-      rgba(255, 195, 85, 0.75) 0%,
-      rgba(255, 195, 85, 0.25) 2%,
-      transparent 5.5%
+      ellipse at 57% 56%,
+      rgba(188, 176, 225, 0.22) 0%,
+      rgba(120, 112, 170, 0.07) 14%,
+      transparent 32%
     ),
-
-    radial-gradient(
-      circle at 53% 28%,
-      rgba(95, 155, 255, 0.68) 0%,
-      rgba(95, 155, 255, 0.22) 2%,
-      transparent 5%
+    linear-gradient(
+      101deg,
+      transparent 41%,
+      rgba(115, 165, 225, 0.05) 46%,
+      rgba(150, 180, 235, 0.17) 49%,
+      rgba(175, 140, 205, 0.10) 52%,
+      transparent 57%
     ),
-
     radial-gradient(
-      circle at 69% 64%,
-      rgba(230, 95, 255, 0.62) 0%,
-      rgba(230, 95, 255, 0.2) 1.7%,
-      transparent 5%
-    ),
-
-    radial-gradient(
-      circle at 82% 42%,
-      rgba(95, 225, 190, 0.65) 0%,
-      rgba(95, 225, 190, 0.2) 1.8%,
-      transparent 5%
-    ),
-
-    radial-gradient(
-      circle at 47% 78%,
-      rgba(255, 105, 145, 0.56) 0%,
-      rgba(255, 105, 145, 0.16) 1.5%,
-      transparent 4.5%
+      ellipse at 79% 30%,
+      rgba(120, 158, 215, 0.17) 0%,
+      transparent 24%
     );
 
-  filter: blur(18px);
+  filter: blur(22px);
 
-  opacity: 0.8;
+  opacity: 0.78;
+
+  transform-origin: center;
 
   animation:
-    distant-lights 22s ease-in-out infinite alternate;
+    unstable-drift 23s ease-in-out infinite alternate;
 }
 
 .environment--four::after {
   content: "";
 
   position: absolute;
-  inset: 0;
+  inset: -4%;
 
   background:
+    linear-gradient(
+      114deg,
+      rgba(0, 0, 0, 0.45) 0%,
+      transparent 29%,
+      rgba(100, 125, 170, 0.035) 49%,
+      transparent 66%,
+      rgba(0, 0, 0, 0.38) 100%
+    ),
     radial-gradient(
-      ellipse at center,
-      transparent 20%,
-      rgba(0, 0, 0, 0.15) 55%,
-      rgba(0, 0, 0, 0.72) 100%
+      ellipse at 54% 51%,
+      transparent 16%,
+      rgba(15, 18, 34, 0.10) 48%,
+      rgba(0, 0, 0, 0.68) 100%
     );
 
-  pointer-events: none;
+  opacity: 0.92;
+
+  animation:
+    unstable-shadow 29s ease-in-out infinite alternate;
 }
 
 
 /* =========================================================
-   ANIMATIONS
+   ENVIRONMENT ANIMATIONS
    ========================================================= */
 
-@keyframes nocturnal-shift {
+/* Shared by Environments 01 and 02 to keep motion controlled. */
+@keyframes field-drift {
   0% {
-    opacity: 0.68;
-
     transform:
       translateX(-1vw)
       translateY(0)
-      scale(0.98);
+      scale(0.985);
   }
 
-  31% {
-    opacity: 0.77;
-
+  34% {
     transform:
-      translateX(0.5vw)
-      translateY(-0.4vh)
+      translateX(0.6vw)
+      translateY(-0.35vh)
       scale(1.01);
   }
 
-  67% {
-    opacity: 0.72;
-
+  70% {
     transform:
-      translateX(1.8vw)
-      translateY(0.3vh)
-      scale(1.04);
+      translateX(1.5vw)
+      translateY(0.25vh)
+      scale(1.035);
   }
 
   100% {
-    opacity: 0.82;
-
     transform:
-      translateX(0.4vw)
-      translateY(-0.6vh)
-      scale(1.06);
+      translateX(0.25vw)
+      translateY(-0.45vh)
+      scale(1.055);
   }
 }
 
-
-@keyframes amber-drift {
+@keyframes threshold-shift {
   0% {
     opacity: 0.58;
 
     transform:
-      translateX(-3vw)
-      translateY(1vh)
-      rotate(-8deg)
-      scale(0.98);
+      rotate(-1.3deg)
+      skewX(-5deg)
+      scaleX(0.96);
   }
 
-  40% {
+  42% {
     opacity: 0.78;
 
     transform:
-      translateX(2vw)
-      translateY(-1vh)
-      rotate(-6deg)
-      scale(1.02);
+      rotate(-1deg)
+      skewX(-4deg)
+      scaleX(1.01);
   }
 
   100% {
-    opacity: 0.66;
-
-    transform:
-      translateX(7vw)
-      translateY(0)
-      rotate(-7deg)
-      scale(1.05);
-  }
-}
-
-
-@keyframes threshold-pulse {
-  0% {
-    opacity: 0.55;
-
-    transform:
-      rotate(-2deg)
-      scaleX(0.97);
-  }
-
-  45% {
-    opacity: 0.9;
+    opacity: 0.65;
 
     transform:
       rotate(-1.5deg)
-      scaleX(1.02);
-  }
-
-  100% {
-    opacity: 0.68;
-
-    transform:
-      rotate(-2deg)
-      scaleX(1);
+      skewX(-6deg)
+      scaleX(1.035);
   }
 }
 
-
-@keyframes distant-lights {
+@keyframes unstable-drift {
   0% {
     opacity: 0.64;
 
     transform:
-      scale(0.98)
-      translateX(-1vw)
-      translateY(0);
+      translateX(-1.1vw)
+      translateY(0.35vh)
+      scale(0.99)
+      rotate(-0.3deg);
   }
 
   38% {
     opacity: 0.82;
 
     transform:
-      scale(1.01)
-      translateX(0.6vw)
-      translateY(-0.5vh);
+      translateX(0.7vw)
+      translateY(-0.45vh)
+      scale(1.015)
+      rotate(0.25deg);
   }
 
   72% {
-    opacity: 0.7;
+    opacity: 0.70;
 
     transform:
-      scale(1.03)
-      translateX(-0.4vw)
-      translateY(0.8vh);
+      translateX(-0.45vw)
+      translateY(0.65vh)
+      scale(1.035)
+      rotate(-0.15deg);
   }
 
   100% {
-    opacity: 0.86;
+    opacity: 0.80;
 
     transform:
+      translateX(0.85vw)
+      translateY(-0.25vh)
       scale(1.05)
-      translateX(0.8vw)
-      translateY(-0.3vh);
+      rotate(0.2deg);
   }
 }
 
+@keyframes unstable-shadow {
+  0% {
+    transform:
+      translateX(0)
+      translateY(0)
+      scale(1);
+  }
 
-/* =========================================================
-   REDUCED MOTION
-   ========================================================= */
+  50% {
+    transform:
+      translateX(-0.65vw)
+      translateY(0.35vh)
+      scale(1.015);
+  }
 
-@media (prefers-reduced-motion: reduce) {
-  .environment--one::before,
-  .environment--two::before,
-  .environment--three::before,
-  .environment--four::before {
-    animation: none;
+  100% {
+    transform:
+      translateX(0.45vw)
+      translateY(-0.3vh)
+      scale(1.025);
   }
 }
-
-/* =========================================================
-   REFLECTION FORM
-   ========================================================= */
-
-form {
-  width: 100%;
-}
-
-label {
-  display: block;
-
-  margin: 2rem 0 0.75rem;
-
-  text-align: left;
-}
-
-textarea {
-  width: 100%;
-  min-height: 150px;
-
-  padding: 1rem;
-
-  resize: vertical;
-
-  border: 1px solid var(--border);
-
-  background: var(--surface);
-  color: var(--text);
-}
-
-
 
 
 /* =========================================================
@@ -857,6 +700,7 @@ textarea {
 
 .feedback-content {
   width: min(90%, 760px);
+
   margin: 0 auto;
   padding-top: 5rem;
   padding-bottom: 6rem;
@@ -864,21 +708,26 @@ textarea {
 
 .feedback-form {
   width: 100%;
+
   margin-top: 3rem;
+
   text-align: left;
 }
 
 .feedback-form fieldset {
-  margin: 0;
   padding: 2rem 0;
+
   border: 0;
   border-top: 1px solid var(--border);
 }
 
 .feedback-form legend {
   width: 100%;
+
   margin-bottom: 1rem;
+
   color: var(--text);
+
   font-size: 1rem;
   line-height: 1.6;
 }
@@ -887,15 +736,19 @@ textarea {
 .feedback-form input[type="text"],
 .feedback-form select {
   width: 100%;
+
   padding: 1rem;
+
   border: 1px solid var(--border);
+  border-radius: 0;
+
   background: var(--surface);
   color: var(--text);
-  font: inherit;
 }
 
 .feedback-form textarea {
   min-height: 130px;
+
   resize: vertical;
 }
 
@@ -908,18 +761,34 @@ textarea {
   cursor: pointer;
 }
 
+.feedback-form option {
+  background: var(--surface);
+  color: var(--text);
+}
+
+.feedback-form textarea::placeholder,
+.feedback-form input::placeholder {
+  color: #7f8087;
+  opacity: 1;
+}
+
 .choice {
   display: flex;
   align-items: center;
+
   gap: 0.75rem;
+
   margin: 0.75rem 0;
+
   cursor: pointer;
 }
 
 .choice input {
   width: 1rem;
   height: 1rem;
+
   margin: 0;
+
   accent-color: white;
 }
 
@@ -929,25 +798,26 @@ textarea {
 
 .privacy-note {
   margin: 2rem 0 1rem;
+
   color: var(--muted);
+
   font-size: 0.8rem;
   line-height: 1.6;
 }
 
 .form-status {
   min-height: 1.5rem;
+
   margin: 0.5rem 0;
+
   color: var(--muted);
+
   font-size: 0.875rem;
 }
 
 .feedback-form button:disabled {
   opacity: 0.5;
   cursor: wait;
-}
-
-[hidden] {
-  display: none !important;
 }
 
 
@@ -962,7 +832,7 @@ textarea {
 
   left: 1.5rem;
   right: 1.5rem;
-  bottom: 1.25rem;
+  bottom: calc(1.25rem + env(safe-area-inset-bottom));
 
   display: grid;
   grid-template-columns: auto 1fr auto;
@@ -975,10 +845,7 @@ textarea {
   border: none;
 
   background: transparent;
-
-  backdrop-filter: none;
 }
-
 
 .nav-button {
   min-width: 44px;
@@ -993,20 +860,18 @@ textarea {
   color: rgba(255, 255, 255, 0.5);
 
   font-size: 0.9rem;
-
-  transition:
-    color 200ms ease,
-    opacity 200ms ease;
 }
 
-
-.nav-button:hover,
+.nav-button:not(:disabled):hover,
 .nav-button:focus-visible {
   background: transparent;
-
   color: white;
 }
 
+.nav-button:disabled {
+  opacity: 0.16;
+  cursor: default;
+}
 
 .progress {
   color: rgba(255, 255, 255, 0.35);
@@ -1014,8 +879,11 @@ textarea {
   text-align: center;
 
   font-size: 0.75rem;
-
   letter-spacing: 0.08em;
+}
+
+[hidden] {
+  display: none !important;
 }
 
 
@@ -1035,6 +903,7 @@ textarea {
   overflow: hidden !important;
 
   clip: rect(0, 0, 0, 0) !important;
+  clip-path: inset(50%) !important;
 
   white-space: nowrap !important;
 
@@ -1047,12 +916,13 @@ textarea {
    ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
-
   .environment--one::before,
-  .environment--one::after {
-    animation: none;
+  .environment--two::before,
+  .environment--three::before,
+  .environment--four::before,
+  .environment--four::after {
+    animation: none !important;
   }
-
 }
 
 
@@ -1061,7 +931,6 @@ textarea {
    ========================================================= */
 
 @media (max-width: 600px) {
-
   .screen__content {
     padding: 4rem 0 7rem;
   }
@@ -1069,7 +938,7 @@ textarea {
   .experience-nav {
     left: 0.75rem;
     right: 0.75rem;
-    bottom: 0.75rem;
+    bottom: calc(0.75rem + env(safe-area-inset-bottom));
   }
 
   .feedback-content {
@@ -1081,4 +950,14 @@ textarea {
     padding: 1.5rem 0;
   }
 
+  .environment--one::before,
+  .environment--two::before {
+    width: 110vw;
+    left: -42vw;
+  }
+
+  .environment--three::before {
+    width: 72vw;
+    left: 14vw;
+  }
 }
