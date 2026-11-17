@@ -217,16 +217,16 @@
 
 
     <!-- =========================
-         5 — REFLECTION
+         5 — FEEDBACK
     ========================== -->
 
     <section
-      class="screen"
+      class="screen screen--feedback"
       data-screen="5"
-      aria-labelledby="reflection-title"
+      aria-labelledby="feedback-title"
     >
 
-      <article class="screen__content screen__content--centered">
+      <article class="screen__content feedback-content">
 
         <header>
 
@@ -234,35 +234,283 @@
             Reflection
           </p>
 
-          <h2 id="reflection-title">
-            Did anything feel familiar?
+          <h2 id="feedback-title">
+            What did you experience?
           </h2>
 
           <p class="reflection-copy">
-            You do not need to identify what any environment was
-            “supposed” to represent. Consider whether any color,
-            light, movement, place, feeling, or atmosphere came
-            to mind.
+            There are no correct answers. Please respond based on
+            whatever came to mind while viewing the environments.
           </p>
 
         </header>
 
 
-        <form id="reflection-form">
+        <form
+          class="feedback-form"
+          id="feedback-form"
+          action="https://formspree.io/f/xwlookoj"
+          method="POST"
+        >
 
-          <label for="reflection">
-            What came to mind?
-          </label>
+          <input
+            type="hidden"
+            name="prototype_version"
+            value="Memory in Light - Prototype 1"
+          />
 
-          <textarea
-            id="reflection"
-            name="reflection"
-            rows="6"
-            placeholder="A place, feeling, memory, sensation, or nothing at all..."
-          ></textarea>
+          <input
+            type="hidden"
+            name="_subject"
+            value="New Memory in Light viewer response"
+          />
+
+
+          <fieldset>
+            <legend>
+              1. What, if anything, did you think you were looking at
+              during the experience?
+            </legend>
+
+            <textarea
+              id="interpretation"
+              name="interpretation"
+              rows="5"
+              placeholder="There is no correct answer..."
+            ></textarea>
+          </fieldset>
+
+
+          <fieldset>
+            <legend>
+              2. Did any of the environments feel familiar to you?
+            </legend>
+
+            <label class="choice">
+              <input
+                type="radio"
+                name="felt_familiar"
+                value="Yes"
+                required
+              />
+              <span>Yes</span>
+            </label>
+
+            <label class="choice">
+              <input
+                type="radio"
+                name="felt_familiar"
+                value="No"
+              />
+              <span>No</span>
+            </label>
+
+            <label class="choice">
+              <input
+                type="radio"
+                name="felt_familiar"
+                value="Unsure"
+              />
+              <span>Unsure</span>
+            </label>
+          </fieldset>
+
+
+          <fieldset>
+            <legend>
+              3. If something felt familiar, what do you think
+              contributed to that feeling?
+            </legend>
+
+            <textarea
+              id="familiar-reason"
+              name="familiar_reason"
+              rows="5"
+            ></textarea>
+          </fieldset>
+
+
+          <fieldset>
+            <legend>
+              4. Did you associate any environment with a place,
+              object, event, memory, or feeling? If so, which one?
+            </legend>
+
+            <textarea
+              id="association"
+              name="association"
+              rows="5"
+            ></textarea>
+          </fieldset>
+
+
+          <fieldset>
+            <legend>
+              5. Which visual element affected your interpretation
+              the most?
+            </legend>
+
+            <select
+              id="visual-element"
+              name="visual_element"
+              required
+            >
+              <option value="">Choose one</option>
+              <option value="Color">Color</option>
+              <option value="Light">Light</option>
+              <option value="Darkness">Darkness</option>
+              <option value="Shape">Shape</option>
+              <option value="Depth or space">Depth or space</option>
+              <option value="Movement">Movement</option>
+              <option value="Something else">Something else</option>
+            </select>
+          </fieldset>
+
+
+          <fieldset>
+            <legend>
+              6. Which environment gave you the most room to form
+              your own interpretation?
+            </legend>
+
+            <label class="choice">
+              <input
+                type="radio"
+                name="most_open_environment"
+                value="Environment 1"
+                required
+              />
+              <span>Environment 1</span>
+            </label>
+
+            <label class="choice">
+              <input
+                type="radio"
+                name="most_open_environment"
+                value="Environment 2"
+              />
+              <span>Environment 2</span>
+            </label>
+
+            <label class="choice">
+              <input
+                type="radio"
+                name="most_open_environment"
+                value="Environment 3"
+              />
+              <span>Environment 3</span>
+            </label>
+
+            <label class="choice">
+              <input
+                type="radio"
+                name="most_open_environment"
+                value="Environment 4"
+              />
+              <span>Environment 4</span>
+            </label>
+          </fieldset>
+
+
+          <fieldset>
+            <legend>
+              7. Was any environment too obvious, too vague,
+              or difficult to interpret?
+            </legend>
+
+            <textarea
+              id="clarity"
+              name="clarity_feedback"
+              rows="4"
+            ></textarea>
+          </fieldset>
+
+
+          <fieldset>
+            <legend>
+              8. How would you describe the overall experience
+              in a few words?
+            </legend>
+
+            <input
+              id="overall-description"
+              name="overall_description"
+              type="text"
+            />
+          </fieldset>
+
+
+          <fieldset>
+            <legend>
+              Anything else you would like to tell me?
+            </legend>
+
+            <textarea
+              id="additional-feedback"
+              name="additional_feedback"
+              rows="5"
+            ></textarea>
+          </fieldset>
+
+
+          <p class="privacy-note">
+            Responses are collected for a Visual Literacy class project.
+            Please do not include your name or other identifying information.
+          </p>
+
+          <p
+            class="form-status"
+            id="form-status"
+            role="status"
+            aria-live="polite"
+          ></p>
+
+          <button
+            class="primary-action"
+            id="submit-feedback"
+            type="submit"
+          >
+            Submit response
+          </button>
 
         </form>
 
+      </article>
+
+    </section>
+
+
+    <!-- =========================
+         6 — REVEAL
+    ========================== -->
+
+    <section
+      class="screen"
+      data-screen="6"
+      aria-labelledby="reveal-title"
+    >
+
+      <article class="screen__content screen__content--centered">
+
+        <p class="eyebrow">
+          Memory in Light
+        </p>
+
+        <h2 id="reveal-title">
+          Thank you.
+        </h2>
+
+        <p class="reflection-copy">
+          This project explores how visual ambiguity, color, light,
+          and atmosphere may create conditions for personal association
+          and autobiographical memory.
+        </p>
+
+        <p class="reflection-copy">
+          The environments were intentionally left unresolved so that
+          viewers could form their own interpretations rather than being
+          told what they were supposed to see or feel.
+        </p>
 
         <button
           class="secondary-action"
@@ -284,6 +532,7 @@
     <nav
       class="experience-nav"
       aria-label="Experience navigation"
+      hidden
     >
 
     <button
