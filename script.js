@@ -34,14 +34,26 @@ let currentScreen = 0;
 const labels = [
   "Introduction",
   "Environment 1 of 4",
+  "Response 1 of 4",
   "Environment 2 of 4",
+  "Response 2 of 4",
   "Environment 3 of 4",
+  "Response 3 of 4",
   "Environment 4 of 4",
-  "Reflection",
+  "Response 4 of 4",
+  "Final reflection",
   "Complete"
 ];
 
-function showScreen(index) {
+const navScreens = new Set([
+  1, 2, 3, 4, 5, 6, 7, 8, 9
+]);
+
+function showScreen(index, options = {}) {
+  const {
+    focus = true
+  } = options;
+
   const clampedIndex = Math.max(
     0,
     Math.min(index, screens.length - 1)
@@ -65,16 +77,12 @@ function showScreen(index) {
 
   if (progressLabel) {
     progressLabel.textContent =
-      labels[currentScreen];
+      labels[currentScreen] ?? "";
   }
 
   if (experienceNav) {
-    const isEnvironment =
-      currentScreen >= 1 &&
-      currentScreen <= 4;
-
     experienceNav.hidden =
-      !isEnvironment;
+      !navScreens.has(currentScreen);
   }
 
   backButtons.forEach((button) => {
@@ -82,14 +90,35 @@ function showScreen(index) {
       currentScreen <= 1;
   });
 
+  nextButtons.forEach((button) => {
+    const isGlobalNext =
+      button.closest(".experience-nav");
+
+    if (isGlobalNext) {
+      button.disabled =
+        currentScreen >= 9;
+    }
+  });
+
   window.scrollTo({
     top: 0,
     behavior: "auto"
   });
+
+  if (focus) {
+    const activeScreen =
+      screens[currentScreen];
+
+    requestAnimationFrame(() => {
+      activeScreen?.focus({
+        preventScroll: true
+      });
+    });
+  }
 }
 
 function goNext() {
-  if (currentScreen < 5) {
+  if (currentScreen < 9) {
     showScreen(currentScreen + 1);
   }
 }
@@ -180,9 +209,9 @@ if (feedbackForm) {
         formStatus.textContent =
           "Response submitted.";
 
-        feedbackForm.reset();
+        showScreen(10);
 
-        showScreen(6);
+        feedbackForm.reset();
       } catch (error) {
         console.error(error);
 
@@ -219,19 +248,20 @@ document.addEventListener(
       return;
     }
 
-    if (
-      currentScreen >= 1 &&
-      currentScreen <= 4
-    ) {
-      if (event.key === "ArrowRight") {
-        goNext();
-      }
+    if (!navScreens.has(currentScreen)) {
+      return;
+    }
 
-      if (event.key === "ArrowLeft") {
-        goBack();
-      }
+    if (event.key === "ArrowRight") {
+      goNext();
+    }
+
+    if (event.key === "ArrowLeft") {
+      goBack();
     }
   }
 );
 
-showScreen(0);
+showScreen(0, {
+  focus: false
+});
