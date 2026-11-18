@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Memory in Light — Prototype</title>
+  <title>Visual Environment Study</title>
 
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -15,25 +15,43 @@
   <main class="experience" id="experience">
 
     <!-- =========================
-         0 — OPENING
+         0 — INTRODUCTION
     ========================== -->
 
     <section
       class="screen is-active"
       data-screen="0"
       aria-labelledby="intro-title"
+      tabindex="-1"
     >
 
       <header class="screen__content screen__content--centered">
 
+        <p class="eyebrow">
+          Visual environment study
+        </p>
+
         <h1 id="intro-title">
-          Look for a moment.
+          Before you begin
         </h1>
 
-        <p class="intro-copy">
-          There are no correct interpretations.<br />
-          Notice whatever comes to mind.
-        </p>
+        <div class="instruction-copy">
+          <p>
+            You’ll move through four visual environments.
+            Spend as much or as little time with each as you like.
+          </p>
+
+          <p>
+            After each environment, you’ll answer two short questions
+            about what you noticed. Use the arrows to move forward or
+            return to an earlier screen.
+          </p>
+
+          <p>
+            Your responses stay saved while you move through the study.
+            There are no correct interpretations.
+          </p>
+        </div>
 
         <button
           class="primary-action"
@@ -48,242 +66,502 @@
     </section>
 
 
-    <!-- =========================
-         1 — MEMORY ENVIRONMENT
-    ========================== -->
-
-    <section
-      class="screen"
-      data-screen="1"
-      aria-labelledby="environment-1-title"
+    <form
+      class="experience-form"
+      id="feedback-form"
+      action="https://formspree.io/f/xwlookoj"
+      method="POST"
     >
 
-      <figure
-        class="environment environment--one"
-        role="img"
+      <input
+        type="hidden"
+        name="prototype_version"
+        value="Memory in Light - Prototype 2"
+      />
+
+      <input
+        type="hidden"
+        name="_subject"
+        value="New Memory in Light Prototype 2 viewer response"
+      />
+
+
+      <!-- =========================
+           1 — ENVIRONMENT 01
+      ========================== -->
+
+      <section
+        class="screen"
+        data-screen="1"
         aria-labelledby="environment-1-title"
-        aria-describedby="environment-1-description"
+        aria-hidden="true"
+        tabindex="-1"
       >
 
-        <!--
-          Build Environment One here.
+        <p class="environment-label" aria-hidden="true">
+          Environment 01
+        </p>
 
-          Direction:
-          cool / nocturnal / diffuse light
-        -->
-
-        <figcaption class="visually-hidden">
-
-          <h2 id="environment-1-title">
-            Visual Environment One
-          </h2>
-
-          <p id="environment-1-description">
-            An abstract visual environment using light and color
-            to invite personal association.
-          </p>
-
-        </figcaption>
-
-      </figure>
-
-    </section>
-
-
-    <!-- =========================
-         2 — MEMORY ENVIRONMENT
-    ========================== -->
-
-    <section
-      class="screen"
-      data-screen="2"
-      aria-labelledby="environment-2-title"
-    >
-
-      <figure
-        class="environment environment--two"
-        role="img"
-        aria-labelledby="environment-2-title"
-        aria-describedby="environment-2-description"
-      >
-
-        <!--
-          Build Environment Two here.
-
-          Direction:
-          warm / amber / changing light
-        -->
-
-        <figcaption class="visually-hidden">
-
-          <h2 id="environment-2-title">
-            Visual Environment Two
-          </h2>
-
-          <p id="environment-2-description">
-            An abstract visual environment using changing light
-            to invite personal association.
-          </p>
-
-        </figcaption>
-
-      </figure>
-
-    </section>
-
-
-    <!-- =========================
-         3 — MEMORY ENVIRONMENT
-    ========================== -->
-
-    <section
-      class="screen"
-      data-screen="3"
-      aria-labelledby="environment-3-title"
-    >
-
-      <figure
-        class="environment environment--three"
-        role="img"
-        aria-labelledby="environment-3-title"
-        aria-describedby="environment-3-description"
-      >
-
-        <!--
-          Build Environment Three here.
-
-          Direction:
-          threshold / narrow light / darkness
-        -->
-
-        <figcaption class="visually-hidden">
-
-          <h2 id="environment-3-title">
-            Visual Environment Three
-          </h2>
-
-          <p id="environment-3-description">
-            An abstract visual environment using darkness
-            and a limited source of light to invite association.
-          </p>
-
-        </figcaption>
-
-      </figure>
-
-    </section>
-
-
-    <!-- =========================
-         4 — MEMORY ENVIRONMENT
-    ========================== -->
-
-    <section
-      class="screen"
-      data-screen="4"
-      aria-labelledby="environment-4-title"
-    >
-
-      <figure
-        class="environment environment--four"
-        role="img"
-        aria-labelledby="environment-4-title"
-        aria-describedby="environment-4-description"
-      >
-
-        <!--
-          Build Environment Four here.
-
-          Direction:
-          blurred points / distant colored light
-        -->
-
-        <figcaption class="visually-hidden">
-
-          <h2 id="environment-4-title">
-            Visual Environment Four
-          </h2>
-
-          <p id="environment-4-description">
-            An abstract visual environment using blurred colored
-            light to invite personal association.
-          </p>
-
-        </figcaption>
-
-      </figure>
-
-    </section>
-
-
-    <!-- =========================
-         5 — FEEDBACK
-    ========================== -->
-
-    <section
-      class="screen screen--feedback"
-      data-screen="5"
-      aria-labelledby="feedback-title"
-    >
-
-      <article class="screen__content feedback-content">
-
-        <header>
-
-          <p class="eyebrow">
-            Reflection
-          </p>
-
-          <h2 id="feedback-title">
-            What did you experience?
-          </h2>
-
-          <p class="reflection-copy">
-            There are no correct answers. Please respond based on
-            whatever came to mind while viewing the environments.
-          </p>
-
-        </header>
-
-
-        <form
-          class="feedback-form"
-          id="feedback-form"
-          action="https://formspree.io/f/xwlookoj"
-          method="POST"
+        <figure
+          class="environment environment--one"
+          role="img"
+          aria-labelledby="environment-1-title"
+          aria-describedby="environment-1-description"
         >
 
-          <input
-            type="hidden"
-            name="prototype_version"
-            value="Memory in Light - Prototype 1"
-          />
+          <figcaption class="visually-hidden">
 
-          <input
-            type="hidden"
-            name="_subject"
-            value="New Memory in Light viewer response"
-          />
+            <h2 id="environment-1-title">
+              Visual Environment One
+            </h2>
+
+            <p id="environment-1-description">
+              An abstract field of cool diffuse light against a dark background.
+            </p>
+
+          </figcaption>
+
+        </figure>
+
+      </section>
 
 
-          <fieldset>
+      <!-- =========================
+           2 — RESPONSE 01
+      ========================== -->
+
+      <section
+        class="screen screen--feedback"
+        data-screen="2"
+        aria-labelledby="response-1-title"
+        aria-hidden="true"
+        tabindex="-1"
+      >
+
+        <article class="screen__content response-content">
+
+          <header>
+            <p class="eyebrow">
+              Environment 01 response
+            </p>
+
+            <h2 id="response-1-title">
+              What came to mind?
+            </h2>
+
+            <p class="reflection-copy">
+              Answer in your own words. You can leave a text box blank
+              if nothing came to mind.
+            </p>
+          </header>
+
+          <fieldset class="feedback-fieldset">
             <legend>
-              1. What, if anything, did you think you were looking at
-              during the experience?
+              What, if anything, did you think you were looking at?
             </legend>
 
             <textarea
-              id="interpretation"
-              name="interpretation"
+              id="environment-1-interpretation"
+              name="environment_1_interpretation"
               rows="5"
-              placeholder="There is no correct answer..."
+              placeholder="Describe whatever you thought you saw..."
             ></textarea>
           </fieldset>
 
-
-          <fieldset>
+          <fieldset class="feedback-fieldset">
             <legend>
-              2. Did any of the environments feel familiar to you?
+              What about the image influenced that interpretation?
+            </legend>
+
+            <textarea
+              id="environment-1-influence"
+              name="environment_1_influence"
+              rows="4"
+              placeholder="Describe anything that stood out..."
+            ></textarea>
+          </fieldset>
+
+          <div class="response-actions">
+            <button
+              class="primary-action"
+              type="button"
+              data-next
+            >
+              Continue to Environment 02
+            </button>
+          </div>
+
+        </article>
+
+      </section>
+
+
+      <!-- =========================
+           3 — ENVIRONMENT 02
+      ========================== -->
+
+      <section
+        class="screen"
+        data-screen="3"
+        aria-labelledby="environment-2-title"
+        aria-hidden="true"
+        tabindex="-1"
+      >
+
+        <p class="environment-label" aria-hidden="true">
+          Environment 02
+        </p>
+
+        <figure
+          class="environment environment--two"
+          role="img"
+          aria-labelledby="environment-2-title"
+          aria-describedby="environment-2-description"
+        >
+
+          <figcaption class="visually-hidden">
+
+            <h2 id="environment-2-title">
+              Visual Environment Two
+            </h2>
+
+            <p id="environment-2-description">
+              An abstract field of warm diffuse light against a dark background.
+            </p>
+
+          </figcaption>
+
+        </figure>
+
+      </section>
+
+
+      <!-- =========================
+           4 — RESPONSE 02
+      ========================== -->
+
+      <section
+        class="screen screen--feedback"
+        data-screen="4"
+        aria-labelledby="response-2-title"
+        aria-hidden="true"
+        tabindex="-1"
+      >
+
+        <article class="screen__content response-content">
+
+          <header>
+            <p class="eyebrow">
+              Environment 02 response
+            </p>
+
+            <h2 id="response-2-title">
+              What came to mind?
+            </h2>
+
+            <p class="reflection-copy">
+              Respond based on your first impression. There are no
+              correct interpretations.
+            </p>
+          </header>
+
+          <fieldset class="feedback-fieldset">
+            <legend>
+              What, if anything, did you think you were looking at?
+            </legend>
+
+            <textarea
+              id="environment-2-interpretation"
+              name="environment_2_interpretation"
+              rows="5"
+              placeholder="Describe whatever you thought you saw..."
+            ></textarea>
+          </fieldset>
+
+          <fieldset class="feedback-fieldset">
+            <legend>
+              What about the image influenced that interpretation?
+            </legend>
+
+            <textarea
+              id="environment-2-influence"
+              name="environment_2_influence"
+              rows="4"
+              placeholder="Describe anything that stood out..."
+            ></textarea>
+          </fieldset>
+
+          <div class="response-actions">
+            <button
+              class="primary-action"
+              type="button"
+              data-next
+            >
+              Continue to Environment 03
+            </button>
+          </div>
+
+        </article>
+
+      </section>
+
+
+      <!-- =========================
+           5 — ENVIRONMENT 03
+      ========================== -->
+
+      <section
+        class="screen"
+        data-screen="5"
+        aria-labelledby="environment-3-title"
+        aria-hidden="true"
+        tabindex="-1"
+      >
+
+        <p class="environment-label" aria-hidden="true">
+          Environment 03
+        </p>
+
+        <figure
+          class="environment environment--three"
+          role="img"
+          aria-labelledby="environment-3-title"
+          aria-describedby="environment-3-description"
+        >
+
+          <figcaption class="visually-hidden">
+
+            <h2 id="environment-3-title">
+              Visual Environment Three
+            </h2>
+
+            <p id="environment-3-description">
+              A dark abstract field with a narrow, softly illuminated band.
+            </p>
+
+          </figcaption>
+
+        </figure>
+
+      </section>
+
+
+      <!-- =========================
+           6 — RESPONSE 03
+      ========================== -->
+
+      <section
+        class="screen screen--feedback"
+        data-screen="6"
+        aria-labelledby="response-3-title"
+        aria-hidden="true"
+        tabindex="-1"
+      >
+
+        <article class="screen__content response-content">
+
+          <header>
+            <p class="eyebrow">
+              Environment 03 response
+            </p>
+
+            <h2 id="response-3-title">
+              What came to mind?
+            </h2>
+
+            <p class="reflection-copy">
+              Respond based on your first impression. There are no
+              correct interpretations.
+            </p>
+          </header>
+
+          <fieldset class="feedback-fieldset">
+            <legend>
+              What, if anything, did you think you were looking at?
+            </legend>
+
+            <textarea
+              id="environment-3-interpretation"
+              name="environment_3_interpretation"
+              rows="5"
+              placeholder="Describe whatever you thought you saw..."
+            ></textarea>
+          </fieldset>
+
+          <fieldset class="feedback-fieldset">
+            <legend>
+              What about the image influenced that interpretation?
+            </legend>
+
+            <textarea
+              id="environment-3-influence"
+              name="environment_3_influence"
+              rows="4"
+              placeholder="Describe anything that stood out..."
+            ></textarea>
+          </fieldset>
+
+          <div class="response-actions">
+            <button
+              class="primary-action"
+              type="button"
+              data-next
+            >
+              Continue to Environment 04
+            </button>
+          </div>
+
+        </article>
+
+      </section>
+
+
+      <!-- =========================
+           7 — ENVIRONMENT 04
+      ========================== -->
+
+      <section
+        class="screen"
+        data-screen="7"
+        aria-labelledby="environment-4-title"
+        aria-hidden="true"
+        tabindex="-1"
+      >
+
+        <p class="environment-label" aria-hidden="true">
+          Environment 04
+        </p>
+
+        <figure
+          class="environment environment--four"
+          role="img"
+          aria-labelledby="environment-4-title"
+          aria-describedby="environment-4-description"
+        >
+
+          <figcaption class="visually-hidden">
+
+            <h2 id="environment-4-title">
+              Visual Environment Four
+            </h2>
+
+            <p id="environment-4-description">
+              An abstract field of overlapping cool-toned light and shadow
+              with slow movement.
+            </p>
+
+          </figcaption>
+
+        </figure>
+
+      </section>
+
+
+      <!-- =========================
+           8 — RESPONSE 04
+      ========================== -->
+
+      <section
+        class="screen screen--feedback"
+        data-screen="8"
+        aria-labelledby="response-4-title"
+        aria-hidden="true"
+        tabindex="-1"
+      >
+
+        <article class="screen__content response-content">
+
+          <header>
+            <p class="eyebrow">
+              Environment 04 response
+            </p>
+
+            <h2 id="response-4-title">
+              What came to mind?
+            </h2>
+
+            <p class="reflection-copy">
+              Respond based on your first impression. There are no
+              correct interpretations.
+            </p>
+          </header>
+
+          <fieldset class="feedback-fieldset">
+            <legend>
+              What, if anything, did you think you were looking at?
+            </legend>
+
+            <textarea
+              id="environment-4-interpretation"
+              name="environment_4_interpretation"
+              rows="5"
+              placeholder="Describe whatever you thought you saw..."
+            ></textarea>
+          </fieldset>
+
+          <fieldset class="feedback-fieldset">
+            <legend>
+              What about the image influenced that interpretation?
+            </legend>
+
+            <textarea
+              id="environment-4-influence"
+              name="environment_4_influence"
+              rows="4"
+              placeholder="Describe anything that stood out..."
+            ></textarea>
+          </fieldset>
+
+          <div class="response-actions">
+            <button
+              class="primary-action"
+              type="button"
+              data-next
+            >
+              Continue to final reflection
+            </button>
+          </div>
+
+        </article>
+
+      </section>
+
+
+      <!-- =========================
+           9 — FINAL REFLECTION
+      ========================== -->
+
+      <section
+        class="screen screen--feedback"
+        data-screen="9"
+        aria-labelledby="feedback-title"
+        aria-hidden="true"
+        tabindex="-1"
+      >
+
+        <article class="screen__content feedback-content">
+
+          <header>
+
+            <p class="eyebrow">
+              Final reflection
+            </p>
+
+            <h2 id="feedback-title">
+              Looking across all four
+            </h2>
+
+            <p class="reflection-copy">
+              Think about the environments as a group. Your earlier
+              responses will remain saved if you go back to look again.
+            </p>
+
+          </header>
+
+
+          <fieldset class="feedback-fieldset">
+            <legend>
+              Did any of the environments feel familiar to you?
             </legend>
 
             <label class="choice">
@@ -316,24 +594,53 @@
           </fieldset>
 
 
-          <fieldset>
+          <fieldset class="feedback-fieldset">
             <legend>
-              3. If something felt familiar, what do you think
-              contributed to that feeling?
+              If yes or unsure, which environment or environments felt familiar?
             </legend>
 
-            <textarea
-              id="familiar-reason"
-              name="familiar_reason"
-              rows="5"
-            ></textarea>
+            <label class="choice">
+              <input
+                type="checkbox"
+                name="familiar_environment_1"
+                value="Environment 1"
+              />
+              <span>Environment 1</span>
+            </label>
+
+            <label class="choice">
+              <input
+                type="checkbox"
+                name="familiar_environment_2"
+                value="Environment 2"
+              />
+              <span>Environment 2</span>
+            </label>
+
+            <label class="choice">
+              <input
+                type="checkbox"
+                name="familiar_environment_3"
+                value="Environment 3"
+              />
+              <span>Environment 3</span>
+            </label>
+
+            <label class="choice">
+              <input
+                type="checkbox"
+                name="familiar_environment_4"
+                value="Environment 4"
+              />
+              <span>Environment 4</span>
+            </label>
           </fieldset>
 
 
-          <fieldset>
+          <fieldset class="feedback-fieldset">
             <legend>
-              4. Did you associate any environment with a place,
-              object, event, memory, or feeling? If so, which one?
+              Did any environment bring a specific place, object, event,
+              memory, or feeling to mind? If so, tell me about it.
             </legend>
 
             <textarea
@@ -344,10 +651,9 @@
           </fieldset>
 
 
-          <fieldset>
+          <fieldset class="feedback-fieldset">
             <legend>
-              5. Which visual element affected your interpretation
-              the most?
+              Which visual element affected your interpretations the most overall?
             </legend>
 
             <select
@@ -367,9 +673,9 @@
           </fieldset>
 
 
-          <fieldset>
+          <fieldset class="feedback-fieldset">
             <legend>
-              6. Which environment gave you the most room to form
+              Which environment gave you the most room to form
               your own interpretation?
             </legend>
 
@@ -412,9 +718,9 @@
           </fieldset>
 
 
-          <fieldset>
+          <fieldset class="feedback-fieldset">
             <legend>
-              7. Was any environment too obvious, too vague,
+              Was any environment too obvious, too vague,
               or difficult to interpret?
             </legend>
 
@@ -426,10 +732,9 @@
           </fieldset>
 
 
-          <fieldset>
+          <fieldset class="feedback-fieldset">
             <legend>
-              8. How would you describe the overall experience
-              in a few words?
+              How would you describe the overall experience in a few words?
             </legend>
 
             <input
@@ -440,7 +745,7 @@
           </fieldset>
 
 
-          <fieldset>
+          <fieldset class="feedback-fieldset">
             <legend>
               Anything else you would like to tell me?
             </legend>
@@ -473,21 +778,23 @@
             Submit response
           </button>
 
-        </form>
+        </article>
 
-      </article>
+      </section>
 
-    </section>
+    </form>
 
 
     <!-- =========================
-         6 — REVEAL
+         10 — REVEAL
     ========================== -->
 
     <section
       class="screen"
-      data-screen="6"
+      data-screen="10"
       aria-labelledby="reveal-title"
+      aria-hidden="true"
+      tabindex="-1"
     >
 
       <article class="screen__content screen__content--centered">
@@ -531,35 +838,37 @@
 
     <nav
       class="experience-nav"
-      aria-label="Experience navigation"
+      aria-label="Study navigation"
       hidden
     >
 
-    <button
-  type="button"
-  class="nav-button"
-  data-back
-  aria-label="Previous environment"
->
-  ←
-</button>
+      <button
+        type="button"
+        class="nav-button"
+        data-back
+        aria-label="Go back"
+        title="Go back"
+      >
+        ←
+      </button>
 
-<output
-  class="progress"
-  id="progress-label"
-  aria-live="polite"
->
-  1 / 4
-</output>
+      <output
+        class="progress"
+        id="progress-label"
+        aria-live="polite"
+      >
+        Environment 1 of 4
+      </output>
 
-<button
-  type="button"
-  class="nav-button"
-  data-next
-  aria-label="Next environment"
->
-  →
-</button>
+      <button
+        type="button"
+        class="nav-button"
+        data-next
+        aria-label="Continue"
+        title="Continue"
+      >
+        →
+      </button>
 
     </nav>
 
