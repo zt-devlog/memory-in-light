@@ -706,7 +706,7 @@ select:focus-visible {
   padding-bottom: 6rem;
 }
 
-.feedback-form {
+.experience-form {
   width: 100%;
 
   margin-top: 3rem;
@@ -714,14 +714,14 @@ select:focus-visible {
   text-align: left;
 }
 
-.feedback-form fieldset {
+.feedback-fieldset {
   padding: 2rem 0;
 
   border: 0;
   border-top: 1px solid var(--border);
 }
 
-.feedback-form legend {
+.feedback-fieldset legend {
   width: 100%;
 
   margin-bottom: 1rem;
@@ -732,9 +732,9 @@ select:focus-visible {
   line-height: 1.6;
 }
 
-.feedback-form textarea,
-.feedback-form input[type="text"],
-.feedback-form select {
+.experience-form textarea,
+.experience-form input[type="text"],
+.experience-form select {
   width: 100%;
 
   padding: 1rem;
@@ -746,28 +746,28 @@ select:focus-visible {
   color: var(--text);
 }
 
-.feedback-form textarea {
+.experience-form textarea {
   min-height: 130px;
 
   resize: vertical;
 }
 
-.feedback-form input[type="text"],
-.feedback-form select {
+.experience-form input[type="text"],
+.experience-form select {
   min-height: 48px;
 }
 
-.feedback-form select {
+.experience-form select {
   cursor: pointer;
 }
 
-.feedback-form option {
+.experience-form option {
   background: var(--surface);
   color: var(--text);
 }
 
-.feedback-form textarea::placeholder,
-.feedback-form input::placeholder {
+.experience-form textarea::placeholder,
+.experience-form input::placeholder {
   color: #7f8087;
   opacity: 1;
 }
@@ -815,7 +815,7 @@ select:focus-visible {
   font-size: 0.875rem;
 }
 
-.feedback-form button:disabled {
+.experience-form button:disabled {
   opacity: 0.5;
   cursor: wait;
 }
@@ -946,7 +946,7 @@ select:focus-visible {
     padding-bottom: 4rem;
   }
 
-  .feedback-form fieldset {
+  .feedback-fieldset {
     padding: 1.5rem 0;
   }
 
@@ -959,5 +959,256 @@ select:focus-visible {
   .environment--three::before {
     width: 72vw;
     left: 14vw;
+  }
+}
+
+
+/* =========================================================
+   PROTOTYPE 02 — STUDY FLOW + NAVIGATION
+   ========================================================= */
+
+.experience-form {
+  margin: 0;
+  padding: 0;
+}
+
+.instruction-copy {
+  max-width: 620px;
+  margin: 1.75rem auto 0;
+}
+
+.instruction-copy p {
+  margin: 0 0 1rem;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.environment-label {
+  position: fixed;
+  z-index: 90;
+
+  top: calc(1rem + env(safe-area-inset-top));
+  left: 50%;
+
+  margin: 0;
+  padding: 0.45rem 0.75rem;
+
+  transform: translateX(-50%);
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+
+  background: rgba(0, 0, 0, 0.42);
+  color: rgba(255, 255, 255, 0.88);
+
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  pointer-events: none;
+}
+
+.response-content {
+  width: min(90%, 720px);
+  margin: 0 auto;
+  padding-top: 4.5rem;
+  padding-bottom: 7rem;
+}
+
+.response-actions {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 1rem;
+}
+
+.feedback-fieldset {
+  margin: 0;
+  padding: 2rem 0;
+
+  border: 0;
+  border-top: 1px solid var(--border);
+}
+
+.feedback-fieldset legend {
+  width: 100%;
+  margin-bottom: 1rem;
+
+  color: var(--text);
+
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.experience-form textarea,
+.experience-form input[type="text"],
+.experience-form select {
+  width: 100%;
+
+  padding: 1rem;
+
+  border: 1px solid var(--border);
+  border-radius: 0;
+
+  background: var(--surface);
+  color: var(--text);
+}
+
+.experience-form textarea {
+  min-height: 126px;
+  resize: vertical;
+}
+
+.experience-form input[type="text"],
+.experience-form select {
+  min-height: 48px;
+}
+
+.experience-form select {
+  cursor: pointer;
+}
+
+.experience-form option {
+  background: var(--surface);
+  color: var(--text);
+}
+
+.experience-form textarea::placeholder,
+.experience-form input::placeholder {
+  color: #85868d;
+  opacity: 1;
+}
+
+.experience-nav {
+  left: 1rem;
+  right: 1rem;
+  bottom: calc(1rem + env(safe-area-inset-bottom));
+
+  grid-template-columns: 56px 1fr 56px;
+
+  pointer-events: none;
+}
+
+.nav-button {
+  width: 56px;
+  height: 56px;
+  min-width: 56px;
+  min-height: 56px;
+
+  display: grid;
+  place-items: center;
+
+  padding: 0;
+
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+
+  background: rgba(250, 250, 250, 0.94);
+  color: #11131a;
+
+  font-size: 1.65rem;
+  font-weight: 600;
+  line-height: 1;
+
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.25),
+    0 0 0 1px rgba(0, 0, 0, 0.08);
+
+  pointer-events: auto;
+}
+
+.nav-button:not(:disabled):hover,
+.nav-button:focus-visible {
+  background: #ffffff;
+  color: #000000;
+}
+
+.nav-button:disabled {
+  opacity: 0.22;
+  cursor: default;
+}
+
+.progress {
+  justify-self: center;
+
+  padding: 0.4rem 0.7rem;
+
+  border-radius: 999px;
+
+  background: rgba(0, 0, 0, 0.38);
+  color: rgba(255, 255, 255, 0.88);
+
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  pointer-events: none;
+}
+
+.screen--feedback {
+  overflow-y: auto;
+  overscroll-behavior-y: contain;
+}
+
+@media (max-width: 600px) {
+  .environment-label {
+    top: calc(0.75rem + env(safe-area-inset-top));
+  }
+
+  .response-content {
+    padding-top: 3.5rem;
+    padding-bottom: 6.5rem;
+  }
+
+  .response-actions .primary-action {
+    width: 100%;
+  }
+
+  .experience-nav {
+    left: 0.75rem;
+    right: 0.75rem;
+    bottom: calc(0.75rem + env(safe-area-inset-bottom));
+
+    grid-template-columns: 52px 1fr 52px;
+  }
+
+  .nav-button {
+    width: 52px;
+    height: 52px;
+    min-width: 52px;
+    min-height: 52px;
+  }
+
+  .progress {
+    max-width: min(52vw, 220px);
+  }
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+  .environment-label {
+    top: calc(0.4rem + env(safe-area-inset-top));
+  }
+
+  .experience-nav {
+    bottom: calc(0.4rem + env(safe-area-inset-bottom));
+  }
+
+  .nav-button {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    min-height: 48px;
+  }
+
+  .screen__content,
+  .response-content {
+    padding-top: 2rem;
+    padding-bottom: 4.5rem;
   }
 }
